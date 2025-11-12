@@ -3,7 +3,7 @@ name = "Projeto_final"
 version = "0.1.0"
 description = "Projeto Final de Aprendizagem por reforço, FGV-EMAp"
 readme = "README.md"
-requires-python = ">=3.12, <3.13"
+requires-python = ">=3.12"
 dependencies = [
     "agilerl>=2.3.5",
     "gymnasium>=1.2.1",

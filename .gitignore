@@ -1,3 +1,5 @@
 .ipynb_checkpoints
 .aider*
 venv
+.venv
+uv.lock
