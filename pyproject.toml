@@ -12,4 +12,5 @@ dependencies = [
     "mpe2>=0.0.1",
     "pettingzoo[mpe]>=1.25.0",
     "pillow>=12.0.0",
+    "datasets"
 ]
