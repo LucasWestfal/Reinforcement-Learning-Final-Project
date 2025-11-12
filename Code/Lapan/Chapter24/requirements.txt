@@ -1,6 +1,0 @@
-nose
-seaborn
-torch
-numpy
-tqdm
-tensorboard-pytorch

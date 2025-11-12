@@ -1,60 +1,55 @@
-# Reinforcement-Learning-course
-Advanced course on Reinforcement Learning.
+# Ambiente Multi-Agente Speaker-Listener
+
+Este projeto implementa um ambiente de aprendizado por reforço multi-agente baseado no [ambiente Speaker-Listener](https://pettingzoo.farama.org/environments/mpe/simple_speaker_listener), onde dois agentes colaboram para resolver tarefas de comunicação e coordenação.   Os Agentes são treinados usando o Algoritmo MATD3.   
+Esta [implementação](https://docs.agilerl.com/en/latest/tutorials/pettingzoo/matd3.html#matd3-tutorial) é fornecida pelo pacote AgileRL, sem garantias de performance.
+
+## Visão Geral
+
+O ambiente Speaker-Listener consiste em dois agentes com papéis distintos:
+
+- **Speaker (Falante)**: Fala mas não pode se mover.
+- **Listener (Ouvinte)**: Ouve as mensagens do Speaker e precisa navegar até O alvo.
+
+Um descrição detalhada deste ambiente pode ser encontrada [neste artigo](https://arxiv.org/pdf/1706.02275)
+                              
+## Características
+- Ambiente colaborativo onde os agentes devem aprender a se comunicar eficazmente                     
+- Treinamento usando algoritmos de aprendizado por reforço multi-agente
+- Suporte para GPU via PyTorch CUDA         
+- Implementação modular e extensível 
+## Requisitos                               
+- Python 3.x                                
+- PyTorch                                   
+- CUDA (opcional, para aceleração GPU) 
+- **uv** (configuração do ambiente e instalação das dependências)
+## Como Usar
+
+Após copiar este diretório localmente, inicialize o ambiente virtual definido em pyproject.toml com o comando `uv`:
+
+```bash
+uv sync
+```
+
+Execute o script principal:                 
+```bash                                     
+python main.py
+```
+
+O sistema detectará automaticamente se CUDA está disponível e utilizará GPU quando possível. 
+Ao final do treinamento, é salva a melhor configuração dos agentes treinados, e uma figura com a evolução do score médio dos agentes.
+
+Para gerar a visualização do modelo treinado, execute o script de replay:
+
+```bash
+python replay.py
+```
 
 
-## Sylabus
 
-### Module 1: Introduction to Reinforcement Learning
+## Tarefa
 
-1. Overview of Reinforcement Learning and its applications
-1. Markov Decision Processes (MDPs) and Bellman Equations
-1. Q-Learning and SARSA algorithms
+Sua tarefa é implementar um novo algoritmo de aprendizado por reforço multi-agente para o ambiente Speaker-Listener. Este algoritmo deve ser capaz de fazer com que o listener consiga navegar até o alvo mais rápido do que o algoritmo [MATD3 original](https://docs.agilerl.com/en/latest/api/algorithms/matd3.html), ou seja, consiga alcançar um score médio maior que -60(score médio da configuração atual). Alternativamente você pode tentar melhorar a configuração do algoritmo atual de forma a superar  a performance atual.
 
-### Module 2: Temporal-Difference methods
+Para saber mais sobre o algoritmo MATD3, consulte [este artigo](https://arxiv.org/abs/1910.01465).
 
-1. TD Learning
-2. TD prediction
-3. SARSA and TD control
 
-### Module 3: Monte Carlo Methods
-
-1. First-Visit Monte Carlo and Every-Visit Monte Carlo methods
-1. On-Policy and Off-Policy methods
-1. Importance Sampling
-
-### Module 4: Function Approximation
-
-1. Introduction to function approximation for Reinforcement Learning
-1. Overview of Deep Reinforcement Learning
-1. Hands-on experience with Gymnasium environment
-
-### Module 5: Project Work and Conclusion
-
-1. Final project: students will work on a real-world Reinforcement Learning problem using the techniques and tools learned in the course
-1. Course conclusion and future directions in Reinforcement Learning research
-
-### References:
-
-1. ["Reinforcement Learning: An Introduction"](https://mega.nz/file/PRYgTQZS#mDQlM1ztv_WYiSQhvBbPI6k2aSaQnq5Jm796H9F9PMk) by Richard S. Sutton and Andrew G. Barto (2018)
-1. [Python implementation based on the book "Reinforcement Learning: An Introduction" by Richard S. Sutton and Andrew G. Barto (2018)](https://github.com/ShangtongZhang/reinforcement-learning-an-introduction) 
-1. "Deep Reinforcement Learning Hands-On" by Maxim Lapan (2018)
-1. [Code for the book "Deep Reinforcement Learning Hands-On" by Maxim Lapan (2018)](https://github.com/PacktPublishing/Deep-Reinforcement-Learning-Hands-On-Second-Edition)
-1. Gymnasium environment (https://gymnasium.farama.org/)
-1. TensorFlow documentation (https://www.tensorflow.org/guide)
-1. PyTorch documentation (https://pytorch.org/docs/stable/index.html)
-1. [AlphaGo Documentary](https://www.youtube.com/watch?v=WXuK6gekU1Y)
-1. [Monte Carlo Tree Search](https://en.wikipedia.org/wiki/Monte_Carlo_tree_search) [Another Introduction](https://int8.io/monte-carlo-tree-search-beginners-guide/#Policy_network_training_in_Alpha_Go_and_Alpha_Zero)
-2. [Stable Baselines](https://stable-baselines.readthedocs.io/en/master/guide/quickstart.html)
-3. [Application to cartpole](https://stable-baselines.readthedocs.io/en/master/guide/examples.html#multiprocessing-unleashing-the-power-of-vectorized-environments). Use of vectorized environments.
-4. [AlphaGO to Muzero](https://www.youtube.com/watch?v=lVMgxtm5L-U)
-4. [Trackmania bot](https://www.youtube.com/watch?v=Dw3BZ6O_8LY) Training an AI to learn to win at Trackmania game.
-5. [Code to train a Trackmania bot](https://github.com/fccoelho/tmrl)
-
-### Multi-Agent Reinforcement Learning (MARL)
-1. [PettingZoo](https://pettingzoo.farama.org) Multi-agent reinforcement learning environment, compatible with Gymnasium.
-2. [Tianshou](https://tianshou.readthedocs.io/en/latest/) A PyTorch library for deep reinforcement learning.
-3. [TorchRL](https://pytorch.org/rl/stable/index.html) A PyTorch library for reinforcement learning.
-4. [BenchMARL](https://github.com/facebookresearch/BenchMARL) BenchMARL is a Multi-Agent Reinforcement Learning (MARL) training library created to enable reproducibility and benchmarking across different MARL algorithms and environments.
-5. [VMAS - Vectorized Multi-Agent Reinforcement Learning Simulator](https://github.com/proroklab/VectorizedMultiAgentSimulator) VMAS is a simulator for multi-agent reinforcement learning (MARL) that supports vectorized environments and is designed to be fast and easy to use.
-
-   
