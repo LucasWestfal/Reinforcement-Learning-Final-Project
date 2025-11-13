@@ -8,7 +8,7 @@ import os
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-from pettingzoo.mpe import simple_speaker_listener_v4
+#from pettingzoo.mpe import simple_speaker_listener_v4
 from mpe2 import simple_speaker_listener_v4
 
 from agilerl.algorithms import MATD3
@@ -30,10 +30,10 @@ if __name__ == "__main__":
     NET_CONFIG = {
         "latent_dim": 64,
         "encoder_config": {
-            "hidden_size": [64],  # Actor hidden size
+            "hidden_size": [128, 128],  # Actor hidden size
         },
         "head_config": {
-            "hidden_size": [64],  # Critic hidden size
+            "hidden_size": [128, 128],  # Critic hidden size
         },
     }
 
@@ -67,8 +67,8 @@ if __name__ == "__main__":
         "LR_ACTOR": 0.0001,  # Actor learning rate
         "LR_CRITIC": 0.001,  # Critic learning rate
         "GAMMA": 0.95,  # Discount factor
-        "MEMORY_SIZE": 2000000,  # Max memory buffer size
-        "LEARN_STEP": 10,  # Learning frequency
+        "MEMORY_SIZE": 3000000,  # Max memory buffer size
+        "LEARN_STEP": 20,  # Learning frequency
         "TAU": 0.01,  # For soft update of target parameters
         "POLICY_FREQ": 2,  # Policy frequnecy
     }
@@ -156,7 +156,7 @@ if __name__ == "__main__":
     )
 
     # Define training loop parameters
-    max_steps = 2_000_000  # Max steps (default: 2000000)
+    max_steps = 300_000  # Max steps (default: 2000000)
     learning_delay = 10_000  # Steps before starting learning
     evo_steps = 100_000  # Evolution frequency
     eval_steps = 100000  # Evaluation steps per episode - go until done
