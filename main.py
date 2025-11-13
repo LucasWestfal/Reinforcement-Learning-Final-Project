@@ -37,21 +37,38 @@ if __name__ == "__main__":
         },
     }
 
+    '''
+    
+    # Define the network configuration
+    NET_CONFIG = {
+        "latent_dim": 64,
+        "encoder_config": {
+            "hidden_size": [64],  # Actor hidden size
+        },
+        "head_config": {
+            "hidden_size": [64],  # Critic hidden size
+        },
+    }
+
+    
+    '''
+
+
     # Define the initial hyperparameters
     INIT_HP = {
         "POPULATION_SIZE": 4,
         "ALGO": "MATD3",  # Algorithm
-        "BATCH_SIZE": 128,  # Batch size
+        "BATCH_SIZE": 512,  # Batch size
         "O_U_NOISE": True,  # Ornstein Uhlenbeck action noise
-        "EXPL_NOISE": 0.1,  # Action noise scale
+        "EXPL_NOISE": 0.3,  # Action noise scale
         "MEAN_NOISE": 0.0,  # Mean action noise
         "THETA": 0.15,  # Rate of mean reversion in OU noise
         "DT": 0.01,  # Timestep for OU noise
         "LR_ACTOR": 0.0001,  # Actor learning rate
         "LR_CRITIC": 0.001,  # Critic learning rate
         "GAMMA": 0.95,  # Discount factor
-        "MEMORY_SIZE": 100000,  # Max memory buffer size
-        "LEARN_STEP": 100,  # Learning frequency
+        "MEMORY_SIZE": 2000000,  # Max memory buffer size
+        "LEARN_STEP": 10,  # Learning frequency
         "TAU": 0.01,  # For soft update of target parameters
         "POLICY_FREQ": 2,  # Policy frequnecy
     }
@@ -140,9 +157,9 @@ if __name__ == "__main__":
 
     # Define training loop parameters
     max_steps = 2_000_000  # Max steps (default: 2000000)
-    learning_delay = 0  # Steps before starting learning
-    evo_steps = 10_000  # Evolution frequency
-    eval_steps = None  # Evaluation steps per episode - go until done
+    learning_delay = 10_000  # Steps before starting learning
+    evo_steps = 100_000  # Evolution frequency
+    eval_steps = 100000  # Evaluation steps per episode - go until done
     eval_loop = 1  # Number of evaluation episodes
     elite = pop[0]  # Assign a placeholder "elite" agent
     total_steps = 0
@@ -304,7 +321,7 @@ if __name__ == "__main__":
     np.save(scores_data_path, np.array(training_scores_history))
     print(f"Dados das pontuações salvos em: {scores_data_path}")
     
-    plt.show()
+    #plt.show()
 
     pbar.close()
     env.close()
