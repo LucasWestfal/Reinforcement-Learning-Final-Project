@@ -41,6 +41,9 @@ agora:
 mudei pra
     "LEARN_STEP": 10,
 
+Mudei
+    evo_steps = 100_000 -> 50_000 
+    eval_steps = 100_000 -> 50_000
 
 a fazer em seguida
 
