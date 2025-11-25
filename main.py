@@ -156,16 +156,19 @@ if __name__ == "__main__":
     )
 
     # Define training loop parameters
-    max_steps = 300_000  # Max steps (default: 2_000_000 / 300_000)
+    max_steps = 200_000  # Max steps (default: 2_000_000 / 300_000)
     learning_delay = 10_000  # Steps before starting learning
-    evo_steps = 50_000  # Evolution frequency (100_00)
-    eval_steps = 50_000  # Evaluation steps per episode - go until done (100_000)
+    evo_steps = 100_000  # Evolution frequency (100_00)
+    eval_steps = 100_000  # Evaluation steps per episode - go until done (100_000)
     eval_loop = 1  # Number of evaluation episodes
     elite = pop[0]  # Assign a placeholder "elite" agent
     total_steps = 0
     
     # Lista para armazenar pontuações médias para plotagem
     training_scores_history = []
+
+    # Armazena todos os scores durante o treinamento
+    scores_history = []
 
     # TRAINING LOOP
     print("Training...")
@@ -248,6 +251,8 @@ if __name__ == "__main__":
             agent.steps[-1] += steps
             pop_episode_scores.append(completed_episode_scores)
 
+        scores_history.append(pop_episode_scores)
+
         # Evaluate population
         fitnesses = [
             agent.test(
@@ -320,6 +325,9 @@ if __name__ == "__main__":
     scores_data_path = os.path.join(path, "training_scores_history.npy")
     np.save(scores_data_path, np.array(training_scores_history))
     print(f"Dados das pontuações salvos em: {scores_data_path}")
+
+    scores_hist_path = os.path.join(path, "full_training_history.npy")
+    np.save(scores_hist_path, np.array(scores_history))
     
     #plt.show()
 

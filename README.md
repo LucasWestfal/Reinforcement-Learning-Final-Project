@@ -29,7 +29,8 @@ nova tentativa
 Parece ter começado a aprender, vou deixar rodando por 2000000 steps. também fiz         "MEMORY_SIZE": 2000000,  # Max memory buffer size
 demorou 9h4min pra rodar, resultados:
 - loss melhorou bastante
-- agora o agente ta buscando a média das bolas consistentemente
+- agora o agente ta buscan
+# line_styles = ["solid", "--", "dotted", "dashdot"]do a média das bolas consistentemente
 possiveis formas de melhorar:
 - refinar learn_step
 - aumentar tamanho do modelo para capturar comportamentos mais rebuscados
@@ -44,6 +45,10 @@ mudei pra
 Mudei
     evo_steps = 100_000 -> 50_000 
     eval_steps = 100_000 -> 50_000
+
+Incluí um novo esquema pra armazenar os scores e plotei a evolução de cada
+agente separadamente, além disso, voltei para 100_000 em evo_steps e eval_steps, porque
+fica muito melhor, e diminuí max_steps para 200_000 pro computador conseguir rodar
 
 a fazer em seguida
 
