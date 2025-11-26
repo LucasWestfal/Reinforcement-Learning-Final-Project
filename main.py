@@ -156,7 +156,7 @@ if __name__ == "__main__":
     )
 
     # Define training loop parameters
-    max_steps = 200_000  # Max steps (default: 2_000_000 / 300_000)
+    max_steps = 2_000_000  # Max steps (default: 2_000_000 / 300_000)
     learning_delay = 10_000  # Steps before starting learning
     evo_steps = 100_000  # Evolution frequency (100_00)
     eval_steps = 100_000  # Evaluation steps per episode - go until done (100_000)

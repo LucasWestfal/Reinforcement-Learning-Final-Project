@@ -50,6 +50,12 @@ Incluí um novo esquema pra armazenar os scores e plotei a evolução de cada
 agente separadamente, além disso, voltei para 100_000 em evo_steps e eval_steps, porque
 fica muito melhor, e diminuí max_steps para 200_000 pro computador conseguir rodar
 
+Mudei novamente para:
+    evo_steps = 100_000
+    eval_steps = 100_000
+    max_steps = 2_000_000
+mas ainda não rodei.
+
 a fazer em seguida
 
 
