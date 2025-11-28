@@ -32,7 +32,8 @@ uv sync
 
 Execute o script principal:                 
 ```bash                                     
-python main.py
+X python main.py
+-> uv run main.py
 ```
 
 O sistema detectará automaticamente se CUDA está disponível e utilizará GPU quando possível. 

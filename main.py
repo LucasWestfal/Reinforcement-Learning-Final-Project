@@ -58,7 +58,7 @@ if __name__ == "__main__":
     INIT_HP = {
         "POPULATION_SIZE": 4,
         "ALGO": "MATD3",  # Algorithm
-        "BATCH_SIZE": 512,  # Batch size
+        "BATCH_SIZE": 4096,  # Batch size
         "O_U_NOISE": True,  # Ornstein Uhlenbeck action noise
         "EXPL_NOISE": 0.3,  # Action noise scale
         "MEAN_NOISE": 0.0,  # Mean action noise
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         "LR_CRITIC": 0.001,  # Critic learning rate
         "GAMMA": 0.95,  # Discount factor
         "MEMORY_SIZE": 3000000,  # Max memory buffer size
-        "LEARN_STEP": 20,  # Learning frequency
+        "LEARN_STEP": 100,  # Learning frequency
         "TAU": 0.01,  # For soft update of target parameters
         "POLICY_FREQ": 2,  # Policy frequnecy
     }
@@ -156,11 +156,12 @@ if __name__ == "__main__":
     )
 
     # Define training loop parameters
-    max_steps = 2_000_000  # Max steps (default: 2_000_000 / 300_000)
+    #max_steps = 2_000_000  # Max steps (default: 2_000_000 / 300_000)
+    max_steps = 400_000  # Max steps (default: 2_000_000 / 300_000)
     learning_delay = 10_000  # Steps before starting learning
     evo_steps = 100_000  # Evolution frequency (100_00)
     eval_steps = 100_000  # Evaluation steps per episode - go until done (100_000)
-    eval_loop = 1  # Number of evaluation episodes
+    eval_loop = 10  # Number of evaluation episodes
     elite = pop[0]  # Assign a placeholder "elite" agent
     total_steps = 0
     
@@ -170,11 +171,15 @@ if __name__ == "__main__":
     # Armazena todos os scores durante o treinamento
     scores_history = []
 
+    agent_keys = env.agents
+
     # TRAINING LOOP
     print("Training...")
     pbar = default_progress_bar(max_steps)
     while np.less([agent.steps[-1] for agent in pop], max_steps).all():
         pop_episode_scores = []
+        
+
         for agent in pop:  # Loop through population
             agent.set_training_mode(True)
             obs, info = env.reset()  # Reset environment at start of episode
@@ -189,7 +194,13 @@ if __name__ == "__main__":
                     action
                 )  # Act in environment
 
+                stacked_rewards = np.stack([reward[agent] for agent in agent_keys])
+                scores += np.sum(stacked_rewards, axis=0)
+                
+                """
                 scores += np.sum(np.array(list(reward.values())).transpose(), axis=-1)
+                """
+
                 total_steps += num_envs
                 steps += num_envs
 
@@ -235,8 +246,14 @@ if __name__ == "__main__":
 
                 # Calculate scores and reset noise for finished episodes
                 reset_noise_indices = []
+
+                """
                 term_array = np.array(list(termination.values())).transpose()
                 trunc_array = np.array(list(truncation.values())).transpose()
+                """
+                term_array = np.stack([termination[agent] for agent in agent_keys]).T
+                trunc_array = np.stack([truncation[agent] for agent in agent_keys]).T   
+
                 for idx, (d, t) in enumerate(zip(term_array, trunc_array)):
                     if np.any(d) or np.any(t):
                         completed_episode_scores.append(scores[idx])

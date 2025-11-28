@@ -58,8 +58,27 @@ mas ainda não rodei.
 
 a fazer em seguida
 
+    hidden_size: [64, 64]
+    max_steps = 500_000
+    evo_steps = 20_000
+    "BATCH_SIZE": 4096
+    e colocar condicional pra armazenar melhor iteração?
+    
 
+coisas que to otimizando no codigo:
 
-    "latent_dim": 128
-    "hidden_size": [128]
-    max_steps = 2_000_000
+ANTIGO:
+scores += np.sum(np.array(list(reward.values())).transpose(), axis=-1)
+
+term_array = np.array(list(termination.values())).transpose()
+trunc_array = np.array(list(truncation.values())).transpose()
+
+=> virou
+agent_keys = env.agents (fora do training loop)
+
+stacked_rewards = np.stack([reward[agent] for agent in agent_keys])
+scores += np.sum(stacked_rewards, axis=0)
+
+term_array = np.stack([termination[agent] for agent in agent_keys]).T
+trunc_array = np.stack([truncation[agent] for agent in agent_keys]).T
+
