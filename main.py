@@ -157,10 +157,10 @@ if __name__ == "__main__":
 
     # Define training loop parameters
     #max_steps = 2_000_000  # Max steps (default: 2_000_000 / 300_000)
-    max_steps = 400_000  # Max steps (default: 2_000_000 / 300_000)
+    max_steps = 300_000  # Max steps (default: 2_000_000 / 300_000)
     learning_delay = 10_000  # Steps before starting learning
     evo_steps = 100_000  # Evolution frequency (100_00)
-    eval_steps = 100_000  # Evaluation steps per episode - go until done (100_000)
+    eval_steps = 1_000  # Evaluation steps per episode - go until done (100_000)
     eval_loop = 10  # Number of evaluation episodes
     elite = pop[0]  # Assign a placeholder "elite" agent
     total_steps = 0
