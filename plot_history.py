@@ -13,13 +13,13 @@ num_iter = data.shape[0]
 
 # Plotar e salvar a evolução das pontuações para cada agente
 # Definições de estilo
-colors = ["#d1534a", "#f29a1e", "#4f9d74", "#2e5d9f"]
-line_styles = ["solid", "--", (5,(10,3)), "dashdot"]
+colors = ["#d1534a", "#f29a1e", "#4f9d74", "#2e5d9f", "#7209b7"]
+line_styles = ["solid", "--", (5,(10,3)), "dashdot", "dotted"]
 
 # Plotar evolução das pontuações médias para cada agente
 plt.figure(figsize=(12, 6))
 for i in range(pop_size):
-    plt.plot(data[:,i].mean(axis=1), linewidth=2, label=f"Agent {i+1}", c=colors[i], ls=line_styles[i])
+    plt.plot(data[:,i].mean(axis=1), linewidth=2, label=f"Agente {i+1}", c=colors[i], ls=line_styles[i])
     plt.title('Evolução das Pontuações de Cada Agente Durante o Treinamento', fontsize=14)
     plt.xlabel('Iterações de Evolução', fontsize=12)
     plt.ylabel('Pontuação Média de Cada Agente', fontsize=12)
@@ -45,16 +45,16 @@ for i in range(pop_size*num_iter):
     if i//num_iter == 0:
         ax[0, i].set_title(f'Iteração de evolução {i+1}', size=12)
     
-    if i%3 == 0:
-        ax[i//num_iter, 0].text(-1500, -500, f'Agente {i//num_iter + 1}', rotation=0, size=12)
+    if i%num_iter == 0:
+        ax[i//num_iter, 0].text(-2000, -500, f'Agente {i//num_iter + 1}', rotation=0, size=12)
         ax[i//num_iter, 0].tick_params(labelright=False, right=True)
     
-    if i%3 == 2:
-        ax[i//num_iter, 2].set_ylabel(f'Pontuação', rotation=0, size=9)
-        ax[i//num_iter, 2].yaxis.set_label_coords(1.15, 1.12)
-        ax[i//num_iter, 2].tick_params(labelright=True, right=True)
+    if i%num_iter == num_iter-1:
+        ax[i//num_iter, -1].set_ylabel(f'Pontuação', rotation=0, size=9)
+        ax[i//num_iter, -1].yaxis.set_label_coords(1.15, 1.12)
+        ax[i//num_iter, -1].tick_params(labelright=True, right=True)
 
-    if i//3 == 3:
+    if i//num_iter == num_iter:
         ax[num_iter, i%num_iter].set_xlabel("Iterações", size=9)
 
 fig.suptitle("Evolução das Pontuações de Cada Agente da População\n", size=14)

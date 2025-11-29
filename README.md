@@ -4,8 +4,33 @@
 
 *Ambos os integrantes do grupo contribuíram igualmente, majoritariamente por meio programação por pares.*
 
+## Introdução
+
+Lorem
+
+## Alterações feitas no código
+
+Lorem
+
+### Vetorização de operações
+
+Lorem ipsum
+
+### Hiperparâmetros
+
+| Hiperparâmetro | Valor anterior | Valor final | Justificativa |
+| -------- | ----- | ----------- | - |
+| `eval_steps`      | -    | -     | Lorem
+| B        | 2     |      a       |
 
 
+### Novos plots
+
+### Outras alterações exploradas, mas descartadas
+
+## Resultados obtidos
+
+[Inserir figuras aqui]
 
 
 ---
@@ -90,3 +115,28 @@ trunc_array = np.stack([truncation[agent] for agent in agent_keys]).T
 
 Mudei `activation` de 0 para 0.2:
 ```activation=0.2,  # Probability of activation function mutation```
+Descobri que não faz diferença pq o modelo MATD3 não suporta esse tipo de mutação, então voltei pra 0
+
+mexi no batch size de novo pra 1024 e depois pra 2048 e de volta a 4096
+mudei "POLICY_FREQ": 3 (era 2) /// voltei pra 2
+mudei population_size para 5 /// voltei pra 4 pq o pc não tankou :(
+também mudei as probabilidades de mutação (todas essas eram 0.2):
+
+    architecture=0.1
+    parameters=0.3
+    rl_hp=0.3
+
+
+Vou tentar mudar esses parâmetros para esses valores:
+    "LR_ACTOR": 3e-4,
+    "LR_CRITIC": 1e-3,
+    "TAU": 0.005
+    "GAMMA": 0.97
+(antes estava:
+    "LR_ACTOR": 0.0001,
+    "LR_CRITIC": 0.001,
+    "TAU": 0.01
+    "GAMMA": 0.95
+) /// esquece, voltei para o que estava antes
+
+botei eval_steps = None (estava 10_000) /// voltei pra 10_000
