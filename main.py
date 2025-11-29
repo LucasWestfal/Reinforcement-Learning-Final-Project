@@ -148,7 +148,7 @@ if __name__ == "__main__":
         architecture=0.2,  # Probability of architecture mutation
         new_layer_prob=0.2,  # Probability of new layer mutation
         parameters=0.2,  # Probability of parameter mutation
-        activation=0,  # Probability of activation function mutation
+        activation=0.2,  # Probability of activation function mutation
         rl_hp=0.2,  # Probability of RL hyperparameter mutation
         mutation_sd=0.1,  # Mutation strength
         rand_seed=1,

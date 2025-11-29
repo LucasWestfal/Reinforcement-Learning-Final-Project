@@ -4,6 +4,13 @@
 
 *Ambos os integrantes do grupo contribuíram igualmente, majoritariamente por meio programação por pares.*
 
+
+
+
+
+---
+
+
 até o momento: 
 corrigimos os imports pra tirar modelo deprecado
 corrigimos o create population, estava passando argumentos no lugar errado
@@ -81,3 +88,5 @@ scores += np.sum(stacked_rewards, axis=0)
 term_array = np.stack([termination[agent] for agent in agent_keys]).T
 trunc_array = np.stack([truncation[agent] for agent in agent_keys]).T
 
+Mudei `activation` de 0 para 0.2:
+```activation=0.2,  # Probability of activation function mutation```
