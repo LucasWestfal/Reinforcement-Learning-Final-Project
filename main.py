@@ -145,11 +145,11 @@ if __name__ == "__main__":
     # Instantiate a mutations object (used for HPO)
     mutations = Mutations(
         no_mutation=0.2,  # Probability of no mutation
-        architecture=0.1,  # Probability of architecture mutation
+        architecture=0.2,  # Probability of architecture mutation
         new_layer_prob=0.2,  # Probability of new layer mutation
-        parameters=0.3,  # Probability of parameter mutation
+        parameters=0.2,  # Probability of parameter mutation
         activation=0,  # Probability of activation function mutation
-        rl_hp=0.3,  # Probability of RL hyperparameter mutation
+        rl_hp=0.2,  # Probability of RL hyperparameter mutation
         mutation_sd=0.1,  # Mutation strength
         rand_seed=1,
         device=device,
@@ -160,7 +160,7 @@ if __name__ == "__main__":
     max_steps = 400_000  # Max steps (default: 2_000_000 / 300_000)
     learning_delay = 10_000  # Steps before starting learning
     evo_steps = 100_000  # Evolution frequency (100_00)
-    eval_steps = 10_000  # Evaluation steps per episode - go until done (100_000)
+    eval_steps = 1_000  # Evaluation steps per episode - go until done (100_000)
     eval_loop = 10  # Number of evaluation episodes
     elite = pop[0]  # Assign a placeholder "elite" agent
     total_steps = 0

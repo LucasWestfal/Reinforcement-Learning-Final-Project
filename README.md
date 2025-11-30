@@ -30,8 +30,50 @@ Lorem ipsum
 
 ## Resultados obtidos
 
-[Inserir figuras aqui]
+![Evolução das pontuações por agente para cada iteração de evolução](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/models/MATD3/training_scores_evolution.png)
+*Fig. 1: Evolução das pontuações médias ao longo das iterações de evolução.*
 
+</br>
+
+![Evoluação das pontuações médias por agente](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/models/MATD3/training_scores_evo_agents.png)
+*Fig. 2: Evoluação das pontuações médias de cada agente.*
+
+</br>
+
+![Evolução das pontuações por agente para cada iteração de evolução](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/models/MATD3/training_scores_complete_data.png)
+*Fig. 3: Evolução das pontuações de cada agente, para cada iteração de evolução.*
+
+</br>
+
+![GIF do jogo com o modelo treinado](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/videos/speaker_listener.gif)
+
+*Fig. 4: Animação mostrando o comportamento do modelo treinado em 10 episódios.*
+
+</br>
+
+Resultado anterior que ficou melhor:
+
+![Resultado anterior](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/8a28edb69556c761270603a78c5d3a40e7742f0d/models/MATD3/training_scores_evolution.png)
+*Fig. 5: ...*
+
+</br>
+
+![Resultado anterior](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/8a28edb69556c761270603a78c5d3a40e7742f0d/models/MATD3/training_scores_evo_agents.png)
+*Fig. 6: ...*
+
+</br>
+
+![Resultado anterior](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/8a28edb69556c761270603a78c5d3a40e7742f0d/models/MATD3/training_scores_complete_data.png)
+*Fig. 7: ...*
+
+</br>
+
+
+![Resultado anterior](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/8a28edb69556c761270603a78c5d3a40e7742f0d/videos/speaker_listener.gif)
+
+*Fig. 8: ...*
+
+</br>
 
 ---
 
@@ -139,4 +181,4 @@ Vou tentar mudar esses parâmetros para esses valores:
     "GAMMA": 0.95
 ) /// esquece, voltei para o que estava antes
 
-botei eval_steps = None (estava 10_000) /// voltei pra 10_000
+botei eval_steps = None (estava 10_000) /// voltei pra 10_000 e depois pra 1_000
