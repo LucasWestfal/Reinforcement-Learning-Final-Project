@@ -50,15 +50,15 @@ Para os hiperparâmetros que permaneceram alterados na versão final do código,
 
 | Hiperparâmetro | Valor padrão | Valor modificado | Justificativa |
 | -------- | ----- | ----------- | - |
-| `hidden_size` | [64]    | [128, 128]    | Lorem
+| `hidden_size` | [64]    | [128, 128]    | Melhorar capacidade de generalização.
 | `BATCH_SIZE` | 128   |    4096     | Mais acurácia na estimação dos gradientes; acelerar convergência.
-| `EXPL_NOISE` | 0.1   |   0.3       | LOREM
-| `MEMORY_SIZE` | 100,000  |   3,000,000   | Evitar overfitting
-| `max_steps`   | 2,000,000  | 400,000     | Limitações computacionais, pelo aumento do número de passos de evolução
-| `learning_delay` | 0 | 10,000      | lorem
-| `evo_steps`   | 10,000 | 100,000     | lorem
-| `eval_steps`  | None | 1,000       | lorem
-| `eval_loop`   | 1 | 10          | lorem
+| `EXPL_NOISE` | 0.1   |   0.3       | Aumentar exploração.
+| `MEMORY_SIZE` | 100,000  |   3,000,000   | Evitar overfitting.
+| `max_steps`   | 2,000,000  | 400,000     | Limitações computacionais, pelo aumento do número de passos de evolução.
+| `learning_delay` | 0 | 10,000      | Aumentar estabilidade do treinamento, quebrando correlação entre os passos.
+| `evo_steps`   | 10,000 | 100,000     | Mais iterações a cada passo de evolução, aprendendo mais antes de julgar os parâmetros.
+| `eval_steps`  | None | 1,000       | Diminuir tempo computacional e acelera evolução.
+| `eval_loop`   | 1 | 10          | Diminuir a variância das pontuações.
 
 Em resumo, as adaptações consistiram principalmente em aumentar o tamanho da rede, a memória, o tamanho dos batches e o número de passos a cada iteração de evolução, a fim de acelerar o aprendizado e melhorar o desempenho geral do modelo; ao mesmo tempo, alguns hiperparâmetros foram "enfraquecidos" a fim de permitir o treinamento com o poder computacional disponível. 
 
