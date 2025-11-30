@@ -105,7 +105,7 @@ Essa evolução foi consistente entre os agentes utilizados pelo algoritmo evolu
 
 </br>
 
-Por fim, buscamos exibir ainda a evolução para agente ao longo de cada uma das iterações de evolução, já que optamos por aumentar o número de passos em cada uma delas.
+Por fim, buscamos exibir ainda a evolução para cada agente ao longo de cada uma das iterações de evolução, já que optamos por aumentar o número de passos em cada uma delas.
 
 ![Evolução das pontuações por agente para cada iteração de evolução](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/models/MATD3/training_scores_complete_data.png)
 *Fig. 3: Evolução das pontuações de cada agente, para cada iteração de evolução.*
