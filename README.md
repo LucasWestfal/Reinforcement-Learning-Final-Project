@@ -2,7 +2,7 @@
 
 **Amanda de Mendonça Perez e Lucas Westfal**
 
-*Ambos os integrantes do grupo contribuíram igualmente, majoritariamente por meio programação por pares.*
+*Ambos os integrantes do grupo contribuíram igualmente, majoritariamente por meio de programação por pares.*
 
 ## Introdução
 
@@ -87,7 +87,7 @@ trunc_array = np.stack([truncation[agent] for agent in agent_keys]).T
 
 Com a diminuição no número máximo de passos, o gráfico gerado pelo código inicial passou a ser menos esclarecedor quanto à evolução da pontuação. Por esse motivo, optamos por implementar outros dois plots que exibissem esses dados com maior granularidade. Para isso, no código de treinamento (em [`main.py`](/main.py)), foi inserida uma etapa de armazenamento das pontuações em um arquivo `full_training_history.npy`. Diferentemente do arquivo `training_scores_history.npy`, que armazena apenas as pontuações médias a cada iteração de evolução, este arquivo armazena os dados completos, para cada agente e cada iteração dentro das iterações de evolução. 
 
-Utilizando esses dados, o script presente no arquivo [`plot_history.py`](/plot_history.py) gera duas novas imagens: `training_scores_evo_agents.png` exibe a evolução das pontuações médias de cada agente da população (neste caso, 4) ao longo das iterações de evolução; já `training_scores_complete_data.png` exibe a totalidade dos dados, mostrando como a pontuação evoluiu para cada agente dentro cada iteração de evolução. Esses gráficos são apresentados e melhor discutidos na seção de resultados.
+Utilizando esses dados, o script presente no arquivo [`plot_history.py`](/plot_history.py) gera duas novas imagens: `training_scores_evo_agents.png` exibe a evolução das pontuações médias de cada agente da população (neste caso, 4) ao longo das iterações de evolução; já `training_scores_complete_data.png` exibe a totalidade dos dados, mostrando como a pontuação evoluiu para cada agente dentro de cada iteração de evolução. Esses gráficos são apresentados e melhor discutidos na seção de resultados.
 
 ## Resultados obtidos
 
@@ -101,7 +101,7 @@ A versão final do modelo demorou aproximadamente 56min17s para treinar e alcan�
 Essa evolução foi consistente entre os agentes utilizados pelo algoritmo evolutivo. O plot exibido a seguir mostra a evolução das pontuações para cada um dos agentes. Note que todos os quatro alcançaram pontuações acima de -60 nas duas últimas iterações de evolução.
 
 ![Evoluação das pontuações médias por agente](https://github.com/LucasWestfal/Reinforcement-Learning-Final-Project/blob/main/models/MATD3/training_scores_evo_agents.png)
-*Fig. 2: Evoluação das pontuações médias de cada agente.*
+*Fig. 2: Evolução das pontuações médias de cada agente.*
 
 </br>
 
